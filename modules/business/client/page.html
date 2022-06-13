@@ -1,10 +1,10 @@
 <div id=D__ID>
 	<div id=toolbar__ID>
-            <div style='display:inline-block;width:200px'><input id=keyword__ID type="text" class="form-control" placeholder="Starts with in first name"></div>
+            <div style='display:inline-block;width:260px'><input id=keyword__ID type="text" class="form-control" placeholder="Starts with in surname name"></div>
             <button id=query__ID type=button class="btn btn-secondary" title='Query' style='vertical-align: top;margin-right:30px'>Query</button>
-            (Maximum returned: 3000)
+            (Maximum returned: 200)
             <span style="margin-right:100px"> </span> 
-            Total Number of records: <span id=total__ID></span>
+            Total Number of records: <span id=total2__ID></span>
             <button id=export__ID type=button class="btn btn-secondary" title='Export' style='vertical-align: top;margin-left:30px'>Export</button>
     </div>
     <div>
@@ -24,7 +24,16 @@
             var records=[];
             var query=function(){
                 $('#grid__ID').text('Please wait...');
-                $vm.request({cmd:'sql2',folder:'core-plus-sql-query',filename:'test.txt',encoding:'utf8', search:$('#keyword__ID').val() },function(res){
+                $('#total2__ID').text('');
+                $vm.request({cmd:'sql2',folder:'core-plus-sql-query',filename:'client.s.count.txt',encoding:'utf8', search:$('#keyword__ID').val() },function(res){
+                    if(res.status=='np'){
+                        return;
+                    }
+                    var r1=res.result[0];
+                    $('#total2__ID').text(r1.count);
+                    console.log(res)
+                })
+                $vm.request({cmd:'sql2',folder:'core-plus-sql-query',filename:'client.s.txt',encoding:'utf8', search:$('#keyword__ID').val() },function(res){
                     $('#grid__ID').text('No data');
                     if(res.status=='np'){
                         alert("No permissions.");

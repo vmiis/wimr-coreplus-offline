@@ -40,7 +40,7 @@
                 footer:         {url:$vm.hosting_path+"/modules/site/footer.html"},
                 home:           {url:$vm.hosting_path+"/modules/site/home.html",router:1},
                 auth:           {url:$vm.hosting_path+"/modules/system/auth.html"},
-                //token:          {url:$vm.hosting_path+"/modules/system/token.html"},
+                token:          {url:$vm.hosting_path+"/modules/system/token.html"},
                 //query:          {url:$vm.hosting_path+"/modules/system/query.html"},
                 vmext:          {url:$vm.hosting_path+"/modules/system/vm-extension.html"},
                 panel:          {url:$vm.hosting_path+"/modules/panels/main.html",router:1},
@@ -77,9 +77,9 @@
             $('#content').css('padding-top',hearder_height);
             $vm.root_layout_content_slot='content'
             $vm.api_addresses={
-                "wimr-dynamics":"https://wimr-snapforms.woolcock.org.au",
+                "wimr":"https://wimr-snapforms.woolcock.org.au",
             }
-            $vm.api_default="wimr-dynamics";
+            $vm.api_default="wimr";
             $vm.api_address='https://wimr-snapforms.woolcock.org.au';
             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){ 
                 $vm.localhost=true;
@@ -174,7 +174,7 @@
                 $vm.load_component('header','header',{});
                 $vm.load_component('footer','footer',{});
                 $vm.install_module('auth','',{},function(name,id){});
-                //$vm.install_module('token','',{},function(name,id){});
+                $vm.install_module('token','',{},function(name,id){});
                 //$vm.install_module('query','',{},function(name,id){});
                 $vm.install_module('vmext','',{},function(name,id){});
                 var install_one=function(m,t){
