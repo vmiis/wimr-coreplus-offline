@@ -7,9 +7,9 @@
         VmInclude:__COMPONENT__/g/grid.01.js
         $('#new__ID').hide();
         $('#import_export_section').hide();
-        $('#title__ID').text('Clients')
+        $('#title__ID').text('Referrals')
         //-------------------------------------
-        var fields="clientID,createDate,title,firstname,middlename,preferredname,surname,DOB,gender,Pronouns,Culture,address,suburb,postcode,samePostalAddress,postalAddress,postalSuburb,postalPostcode,homeNo,mobile,workNo,faxNo,email,caseStatus,disclosure,site,caseManager,medicareCardNumber,medicareCardIRN,medicareCardExpireDate,DVAnumber,Fund,FundNumberPosition,clientGroup,marketSource,marketingConsent,externalId,claimNo,OverviewNote1,OverviewNote2,NDISParticipantNumber,NDISAvailableFunds,NDISStartDate,NDISEndDate,NDISFundingType";
+        var fields="ReferralID,clientid,clientName,ReferrerName,referrerId,referralDate,referralExpiry,groupId,Notes,Deleted,appointmentLimit,Active,ReferrerAddress,ReferrerSuburb,ReferrerPostcode";
         m.fields="_Form,"+fields;
         //-------------------------------------
         m.cell_render=function(records,I,field,td){
